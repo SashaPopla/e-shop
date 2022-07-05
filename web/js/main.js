@@ -2,7 +2,7 @@
 
  $('#sl2').slider();
 
- 	$(".catalog").dcAccordion();
+ 	$('#catalog').dcAccordion();
 
 	var RGBChange = function() {
 	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
