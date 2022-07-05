@@ -77,8 +77,8 @@ $this->title = 'Home';
                 <div class="left-sidebar">
                     <h2>Category</h2>
 
-                    <ul class="catalog category-products" id="accordian">
-                        <?= \app\components\MenuWidget::widget(['tpl' => 'menu'])?>
+                    <ul class="catalog category-products">
+                            <?= \app\components\MenuWidget::widget(['tpl' => 'menu'])?>
                     </ul>
 
                     <div class="panel-group category-products" id="accordian"><!--category-productsr-->
