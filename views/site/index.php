@@ -81,113 +81,6 @@ $this->title = 'Home';
                             <?= \app\components\MenuWidget::widget(['tpl' => 'menu'])?>
                     </ul>
 
-                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
-                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        Sportswear
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="sportswear" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul>
-                                        <li><a href="#">Nike </a></li>
-                                        <li><a href="#">Under Armour </a></li>
-                                        <li><a href="#">Adidas </a></li>
-                                        <li><a href="#">Puma</a></li>
-                                        <li><a href="#">ASICS </a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordian" href="#mens">
-                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        Mens
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="mens" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul>
-                                        <li><a href="#">Fendi</a></li>
-                                        <li><a href="#">Guess</a></li>
-                                        <li><a href="#">Valentino</a></li>
-                                        <li><a href="#">Dior</a></li>
-                                        <li><a href="#">Versace</a></li>
-                                        <li><a href="#">Armani</a></li>
-                                        <li><a href="#">Prada</a></li>
-                                        <li><a href="#">Dolce and Gabbana</a></li>
-                                        <li><a href="#">Chanel</a></li>
-                                        <li><a href="#">Gucci</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordian" href="#womens">
-                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        Womens
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="womens" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul>
-                                        <li><a href="#">Fendi</a></li>
-                                        <li><a href="#">Guess</a></li>
-                                        <li><a href="#">Valentino</a></li>
-                                        <li><a href="#">Dior</a></li>
-                                        <li><a href="#">Versace</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Kids</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Fashion</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Households</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Interiors</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Clothing</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Bags</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Shoes</a></h4>
-                            </div>
-                        </div>
-                    </div><!--/category-products-->
-
                     <div class="brands_products"><!--brands_products-->
                         <h2>Brands</h2>
                         <div class="brands-name">
@@ -765,3 +658,43 @@ $this->title = 'Home';
         </div>
     </div>
 </section>
+
+<?php
+$script = <<<JS
+    /*price range*/
+
+ $('#sl2').slider();
+
+ 	$('.catalog').dcAccordion();
+
+	var RGBChange = function() {
+	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
+	};	
+		
+/*scroll to top*/
+
+$(document).ready(function(){
+	$(function () {
+		$.scrollUp({
+	        scrollName: 'scrollUp', // Element ID
+	        scrollDistance: 300, // Distance from top/bottom before showing element (px)
+	        scrollFrom: 'top', // 'top' or 'bottom'
+	        scrollSpeed: 300, // Speed back to top (ms)
+	        easingType: 'linear', // Scroll to top easing (see http://easings.net/)
+	        animation: 'fade', // Fade, slide, none
+	        animationSpeed: 200, // Animation in speed (ms)
+	        scrollTrigger: false, // Set a custom triggering element. Can be an HTML string or jQuery object
+					//scrollTarget: false, // Set a custom target element for scrolling to the top
+	        scrollText: '<i class="fa fa-angle-up"></i>', // Text for element, can contain HTML
+	        scrollTitle: false, // Set a custom <a> title if required.
+	        scrollImg: false, // Set true to use image
+	        activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+	        zIndex: 2147483647 // Z-Index for the overlay
+		});
+	});
+});
+
+JS;
+
+$this->registerJs($script);
+?>

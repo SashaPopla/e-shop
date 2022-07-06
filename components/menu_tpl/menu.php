@@ -1,5 +1,9 @@
+<?php
+
+?>
+
 <li>
-    <a data-toggle="collapse" data-parent="#accordian" href="#">
+    <a href="">
         <?=$category['name']?>
         <?php if(isset($category['childs'])): ?>
             <span class="badge pull-right">

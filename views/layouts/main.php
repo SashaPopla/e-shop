@@ -26,6 +26,7 @@ LtAppAsset::register($this);
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
@@ -299,7 +300,6 @@ LtAppAsset::register($this);
 
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
 
 </body>
 </html>
