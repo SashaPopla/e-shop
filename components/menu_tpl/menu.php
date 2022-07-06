@@ -1,9 +1,11 @@
 <?php
+/** @var array $category */
+
 
 ?>
 
 <li>
-    <a href="">
+    <a href="<?= yii\helpers\Url::to(['category/view', 'id'=>$category['name']])?>">
         <?=$category['name']?>
         <?php if(isset($category['childs'])): ?>
             <span class="badge pull-right">
