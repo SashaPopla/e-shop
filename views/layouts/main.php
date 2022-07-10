@@ -6,6 +6,7 @@
 use app\assets\AppAsset;
 use app\assets\LtAppAsset;
 use yii\bootstrap4\Html;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 LtAppAsset::register($this);
@@ -61,8 +62,8 @@ LtAppAsset::register($this);
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="index.html">
-                            <?= Html::img("@web/images/home/logo.png", ['alt'=> '']) ?>
+                        <a href="<?= Url::home()?>">
+                            <?= Html::img("@web/images/home/logo.png", ['alt'=> 'E-SHOPPER |']) ?>
                         </a>
                     </div>
                     <div class="btn-group pull-right">

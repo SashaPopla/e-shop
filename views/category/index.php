@@ -3,8 +3,6 @@
 /** @var yii\web\View $this */
 
 use yii\helpers\Html;
-
-$this->title = 'Home | E-Shopping';
 ?>
 
 <section id="slider"><!--slider-->

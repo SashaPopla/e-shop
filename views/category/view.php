@@ -1,10 +1,9 @@
 <?php
 
 /** @var yii\web\View $this */
+/** @var object $category */
 
 use yii\helpers\Html;
-
-$this->title = 'Shop';
 ?>
 <section id="advertisement">
     <div class="container">
@@ -53,7 +52,7 @@ $this->title = 'Shop';
 
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
-                    <h2 class="title text-center">Features Items</h2>
+                    <h2 class="title text-center"><?=$category->name?></h2>
                         <?php if(!empty($products)): ?>
                             <?php $i = 0; foreach ($products as $product): ?>
                     <div class="col-sm-4">
@@ -86,16 +85,15 @@ $this->title = 'Shop';
                                 <div class="clearfix"></div>
                             <?php endif; ?>
                             <?php endforeach; ?>
+
+                            <div class="clearfix"></div>
+                            <?php
+                                echo \yii\widgets\LinkPager::widget(['pagination'=>$pages])
+                            ?>
+
                             <?php else: ?>
                             <h2>Товаров нету</h2>
                         <?php endif; ?>
-                    <div class="clearfix"></div>
-                    <ul class="pagination">
-                        <li class="active"><a href="">1</a></li>
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li><a href="">&raquo;</a></li>
-                    </ul>
                 </div><!--features_items-->
             </div>
         </div>

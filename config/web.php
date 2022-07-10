@@ -51,6 +51,9 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                // конкретные правила
+                'category/<id:\d+>/page/<page:\d+>' => 'category/view',
+                // общие правила
                 'category/<id:\+>' => 'category/view',
             ],
         ],
