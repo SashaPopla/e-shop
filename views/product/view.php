@@ -5,6 +5,8 @@
 /** @var object $hits */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
+
 ?>
 <section>
     <div class="container">
@@ -98,11 +100,11 @@ use yii\helpers\Html;
                             <span>
                                 <span>$ <?= $product->price ?></span>
                                 <label>Quantity:</label>
-                                <input type="text" value="1" />
-                                <button type="button" class="btn btn-fefault cart">
+                                <input type="text" value="1" id="qty"/>
+                                <a href="#" data-id="<?= $product->id ?>" class="btn btn-fefault add-to-cart cart">
                                     <i class="fa fa-shopping-cart"></i>
                                     Add to cart
-                                </button>
+                                </a>
                             </span>
                             <p><b>Availability:</b> In Stock</p>
                             <p><b>Condition:</b> New</p>
@@ -347,8 +349,10 @@ $script = <<<JS
 
  $('#sl2').slider();
 
- 	$('.catalog').dcAccordion();
-
+ 	$('.catalog').dcAccordion({
+ 	    speed: 300
+ 	});
+     
 	var RGBChange = function() {
 	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
 	};	

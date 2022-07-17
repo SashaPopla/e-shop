@@ -1,9 +1,4 @@
 <?php
-/**
- * @link http://www.yiiframework.com/
- * @copyright Copyright (c) 2008 Yii Software LLC
- * @license http://www.yiiframework.com/license/
- */
 
 namespace app\assets;
 
@@ -27,7 +22,7 @@ class AppAsset extends AssetBundle
         'css/animate.css',
         'css/responsive.css',
         'css/style.css',
-        'css/main.css',
+        'css/main.css'
     ];
     public $js = [
         'js/jquery.js',
@@ -37,6 +32,7 @@ class AppAsset extends AssetBundle
         'js/jquery.prettyPhoto.js',
         'js/jquery.accordion.js',
         'js/jquery.cookie.js',
+        'js/add.js'
     ];
     public $depends = [
         //'yii\web\YiiAsset',

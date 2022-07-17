@@ -7,6 +7,7 @@ use app\models\Product;
 use Yii;
 use yii\data\Pagination;
 use yii\web\HttpException;
+use yii\helpers\Html;
 
 class CategoryController extends AppController
 {
@@ -46,7 +47,7 @@ class CategoryController extends AppController
 
     public function actionSearch()
     {
-        $search = trim(Yii::$app->request->get('search'));
+        $search = trim(Yii::$app->request->get('q'));
 
         $this->setMeta('E-SHOPPER | '.$search);
 
@@ -58,7 +59,7 @@ class CategoryController extends AppController
 
         $pages = new Pagination([
             'totalCount' => $query->count(),
-            'pageSize' => 3,
+            'pageSize' => 6,
             'forcePageParam' => false,
             'pageSizeParam' => false
         ]);

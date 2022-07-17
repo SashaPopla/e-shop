@@ -25,8 +25,8 @@ use yii\helpers\Html;
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
-                                <img src="images/home/pricing.png"  class="pricing" alt="" />
+                                <?= Html::img("@web/images/home/girl1.jpg", ['alt' => '', 'class'=>'girl img-responsive']) ?>
+                                <?= Html::img("@web/images/home/pricing.png", ['alt' => '', 'class'=>'pricing']) ?>
                             </div>
                         </div>
                         <div class="item">
@@ -37,8 +37,8 @@ use yii\helpers\Html;
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
-                                <img src="images/home/pricing.png"  class="pricing" alt="" />
+                                <?= Html::img("@web/images/home/girl2.jpg", ['alt' => '', 'class'=>'girl img-responsive']) ?>
+                                <?= Html::img("@web/images/home/pricing.png", ['alt' => '', 'class'=>'pricing']) ?>
                             </div>
                         </div>
 
@@ -50,8 +50,8 @@ use yii\helpers\Html;
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
-                                <img src="images/home/pricing.png" class="pricing" alt="" />
+                                <?= Html::img("@web/images/home/girl3.jpg", ['alt' => '', 'class'=>'girl img-responsive']) ?>
+                                <?= Html::img("@web/images/home/pricing.png", ['alt' => '', 'class'=>'pricing']) ?>
                             </div>
                         </div>
 
@@ -105,7 +105,7 @@ use yii\helpers\Html;
                     </div><!--/price-range-->
 
                     <div class="shipping text-center"><!--shipping-->
-                        <img src="images/home/shipping.jpg" alt="" />
+                        <?= Html::img("@web/images/home/shipping.jpg", ['alt' => '']) ?>
                     </div><!--/shipping-->
 
                 </div>
@@ -126,7 +126,10 @@ use yii\helpers\Html;
                                     <?= Html::img("@web/images/products/{$hit->img}", ['alt' => $hit->content]) ?>
                                     <h2>$ <?= $hit->price ?></h2>
                                     <p><a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit->id]) ?>"> <?= $hit->name ?> </a></p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    <a href="<?=\yii\helpers\Url::to(['cart/add', 'id'=>$hit->id])?>" data-id="<?=$hit->id?>" class="btn btn-default add-to-cart">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        Add to cart
+                                    </a>
                                 </div>
 
                                 <?php if($hit->new): ?>
@@ -168,7 +171,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery1.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery1.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -181,7 +184,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery2.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery2.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -194,7 +197,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery3.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery3.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -207,7 +210,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery4.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery4.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -223,7 +226,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery4.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery4.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -236,7 +239,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery3.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery3.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -249,7 +252,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery2.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery2.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -262,7 +265,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery1.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery1.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -278,7 +281,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery3.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery3.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -291,7 +294,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery4.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery4.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -304,7 +307,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery1.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery1.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -317,7 +320,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery2.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery2.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -333,7 +336,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery1.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery1.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -346,7 +349,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery2.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery2.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -359,7 +362,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery3.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery3.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -372,7 +375,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery4.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery4.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -388,7 +391,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery2.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery2.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -401,7 +404,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery4.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery4.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -414,7 +417,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery3.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery3.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -427,7 +430,7 @@ use yii\helpers\Html;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery1.jpg" alt="" />
+                                            <?= Html::img("@web/images/home/gallery1.jpg", ['alt' => '']) ?>
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -450,7 +453,7 @@ use yii\helpers\Html;
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend1.jpg" alt="" />
+                                                <?= Html::img("@web/images/home/recommend1.jpg", ['alt' => '']) ?>
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -463,7 +466,7 @@ use yii\helpers\Html;
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend2.jpg" alt="" />
+                                                <?= Html::img("@web/images/home/recommend2.jpg", ['alt' => '']) ?>
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -476,7 +479,7 @@ use yii\helpers\Html;
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend3.jpg" alt="" />
+                                                <?= Html::img("@web/images/home/recommend3.jpg", ['alt' => '']) ?>
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -491,7 +494,7 @@ use yii\helpers\Html;
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend1.jpg" alt="" />
+                                                <?= Html::img("@web/images/home/recommend1.jpg", ['alt' => '']) ?>
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -504,7 +507,7 @@ use yii\helpers\Html;
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend2.jpg" alt="" />
+                                                <?= Html::img("@web/images/home/recommend2.jpg", ['alt' => '']) ?>
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -517,7 +520,7 @@ use yii\helpers\Html;
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend3.jpg" alt="" />
+                                                <?= Html::img("@web/images/home/recommend3.jpg", ['alt' => '']) ?>
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -548,8 +551,10 @@ $script = <<<JS
 
  $('#sl2').slider();
 
- 	$('.catalog').dcAccordion();
-
+ 	$('.catalog').dcAccordion({
+ 	    speed: 300
+ 	});
+          
 	var RGBChange = function() {
 	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
 	};	
