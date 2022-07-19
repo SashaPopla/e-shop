@@ -6,6 +6,7 @@
 use app\assets\AppAsset;
 use app\assets\LtAppAsset;
 use yii\bootstrap4\Html;
+use yii\bootstrap4\Nav;
 use yii\helpers\Url;
 
 AppAsset::register($this);
@@ -84,7 +85,9 @@ LtAppAsset::register($this);
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-                            <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
+                            <li>
+                                <a href="<?= Url::to(['wishlist/add-wishlist']) ?>"><i class="fa fa-star"></i> Wishlist</a>
+                            </li>
                             <li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             <li>
                                 <a href="#" id="getCart"><i class="fa fa-shopping-cart"></i> Cart</a>
@@ -111,7 +114,7 @@ LtAppAsset::register($this);
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="index.html" class="active">Home</a></li>
+                            <li><a href="<?= Url::home()?>" class="active">Home</a></li>
                             <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="shop.html">Products</a></li>
