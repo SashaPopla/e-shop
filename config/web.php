@@ -60,7 +60,8 @@ $config = [
                 'category/<id:\d+>' => 'category/view',
                 'product/<id:\d+>' => 'product/view',
                 'search' => 'category/search',
-                'wishlist' => 'wishlist/add-wishlist'
+                'wishlist' => 'wishlist/add-wishlist',
+                'order' => 'cart/view'
             ],
         ],
 

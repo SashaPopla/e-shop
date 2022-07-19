@@ -305,7 +305,7 @@ LtAppAsset::register($this);
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупку</button>
-                <button type="button" class="btn btn-success">Оформить заказ</button>
+                <a href="<?= Url::to(['cart/view']) ?>" class="btn btn-success">Оформить заказ</a>
                 <button type="button" class="btn btn-danger" id="clear">Очистить корзину</button>
             </div>
         </div><!-- /.modal-content -->
