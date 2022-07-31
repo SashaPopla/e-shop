@@ -7,7 +7,7 @@
 use yii\bootstrap4\ActiveForm;
 use yii\bootstrap4\Html;
 
-$this->title = 'Login';
+$this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login container">
@@ -17,9 +17,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
-            <?= $form->field($model, 'password')->passwordInput() ?>
+            <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
 
-            <?= $form->field($model, 'rememberMe')->checkbox() ?>
+            <?= $form->field($model, 'password')->passwordInput() ?>
 
             <div class="form-group">
                 <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
@@ -29,3 +29,4 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+
