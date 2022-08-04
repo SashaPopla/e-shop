@@ -1,7 +1,5 @@
 <?php
 /** @var array $category */
-
-
 ?>
 
 <li>

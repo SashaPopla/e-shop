@@ -30,7 +30,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'parent_id',
+            //'parent_id',
+            [
+                'attribute' =>  'parent_id',
+                'value' => function($data){
+                    if(!$data->category)
+                        return "Родительская категория";
+                    else
+                        return $data->category->name;
+                },
+            ],
             'name',
             'keywords',
             'description:ntext',

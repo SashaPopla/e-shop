@@ -65,17 +65,32 @@ LtAppAsset::register($this);
                         </a>
                     </div>
                     <div class="btn-group pull-right">
+                        <?php if(Yii::$app->language == 'ru'): ?>
                         <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                USA
+                                Ru
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Canada</a></li>
-                                <li><a href="#">UK</a></li>
+                                <li>
+                                    <?= Html::a('En', array_merge(Yii::$app->request->get(),[Yii::$app->controller->route, 'language' => 'en'])); ?>
+                                </li>
                             </ul>
                         </div>
-
+                        <?php endif; ?>
+                        <?php if(Yii::$app->language == 'en'): ?>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                    En
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <?= Html::a('Ru', array_merge(Yii::$app->request->get(),[Yii::$app->controller->route, 'language' => 'ru'])); ?>
+                                    </li>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="col-sm-8">
@@ -91,7 +106,7 @@ LtAppAsset::register($this);
                             <li>
                                 <a href="#" id="getCart"><i class="fa fa-shopping-cart"></i> Cart</a>
                             </li>
-                            <li><a href="<?= Url::to('/e-shop/web/site/login') ?>"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href="<?= Url::to('/e-shop/web/site/login') ?>"><i class="fa fa-lock"></i> <?= Yii::t('common', 'Login') ?> </a></li>
                             <li><a href="<?= Url::to('/e-shop/web/site/signup')?>"><i class="fa fa-lock"></i> Signup</a></li>
                         </ul>
                     </div>

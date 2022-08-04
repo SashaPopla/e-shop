@@ -12,11 +12,25 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'category_id')->textInput() ?>
+    <?php //$form->field($model, 'category_id')->textInput() ?>
+
+    <div class="form-group field-product-category_id has-success">
+        <label class="control-label" for="product-category_id">Родительская категория</label>
+        <select id="product-category_id" class="form-control" name="Product[category_id]">
+            <?= \app\components\MenuWidget::widget(['tpl' => 'select_product', 'model' => $model]) ?>
+        </select>
+    </div>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'content')->textInput(['maxlength' => true]) ?>
+    <?php
+    echo $form->field($model, 'content')->widget(\mihaildev\ckeditor\CKEditor::className(),[
+       'editorOptions' => [
+           'preset' => 'standart', //basic, standart, full
+           'inline' => false,
+       ],
+    ]);
+    ?>
 
     <?= $form->field($model, 'price')->textInput() ?>
 
@@ -26,11 +40,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'hit')->textInput() ?>
+    <?= $form->field($model, 'hit')->checkbox(['0', '1']) ?>
 
-    <?= $form->field($model, 'new')->textInput() ?>
+    <?= $form->field($model, 'new')->checkbox(['0', '1']) ?>
 
-    <?= $form->field($model, 'sale')->textInput() ?>
+    <?= $form->field($model, 'sale')->checkbox(['0', '1']) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

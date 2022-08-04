@@ -21,6 +21,8 @@ class SignupForm extends Model
     public $email;
     public $password;
 
+    private $_user = false;
+
     public function rules()
     {
         return [
@@ -39,15 +41,14 @@ class SignupForm extends Model
         $user = new User();
 
         if (!$this->hasErrors()) {
-            //$user = $this->getUser();
-
             $user->username = $this->username;
             $user->email = $this->email;
             $user->setPassword($this->password);
-
             //$user->generateAuthKey();
+	    
+            $user->save();
 
-            return $user->save();
+	    return Yii::$app->user->login($user::findOne(['username' => $this->username]), 0);
         }
     }
 
@@ -59,4 +60,14 @@ class SignupForm extends Model
             'password' => 'Пароль',
         ];
     }
+
+	public function getUser()
+	{
+	    if($this->_user === false){
+	    	$this->_user = $this->username;
+	    }
+
+	    return $this->_user;
+	}
+
 }

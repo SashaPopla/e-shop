@@ -1,14 +1,16 @@
 <?php
-//use \yii\web\Request;
+
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
-//$baseUrl = str_replace('/web', '', (new Request)->getBaseUrl());
+
+
 
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'language' => 'ru',
+    'sourceLanguage' => 'en',
     'defaultRoute' => 'category/index',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -66,6 +68,9 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'enableStrictParsing' => false,
+            'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['ru', 'en'],
+            'enableDefaultLanguageUrlCode' => false,
             'rules' => [
                 // конкретные правила
                 'category/<id:\d+>/page/<page:\d+>' => 'category/view',
@@ -75,10 +80,18 @@ $config = [
                 'product/<id:\d+>' => 'product/view',
                 'search' => 'category/search',
                 'wishlist' => 'wishlist/add-wishlist',
-                'order' => 'cart/view'
+                'order' => 'cart/view',
+                '//*' => '/'
             ],
         ],
-
+        'i18n' => [
+            'translations' => [
+                'common*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                ],
+            ],
+        ],
     ],
     'params' => $params,
 ];

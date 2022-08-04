@@ -100,7 +100,7 @@
         <div class="header-bottom"><!--header-bottom-->
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-9">
+                    <div class="col-sm-10">
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="sr-only">Toggle navigation</span>
@@ -115,21 +115,21 @@
                                     <a href="<?= Url::to('/e-shop/web/admin/') ?>" class="active">Home</a>
                                 </li>
                                 <li>
-                                    <a href="<?= Url::to('category/') ?>">Category</a>
+                                    <a href="<?= Url::to('/e-shop/web/admin/category/') ?>">Category</a>
                                 </li>
                                 <li>
-                                    <a href="<?= Url::to('product/') ?>">Product</a>
+                                    <a href="<?= Url::to('/e-shop/web/admin/product/') ?>">Product</a>
                                 </li>
                                 <li>
-                                    <a href="<?= Url::to('order/') ?>">Order</a>
+                                    <a href="<?= Url::to('/e-shop/web/admin/order/') ?>">Order</a>
                                 </li>
                                 <li>
-                                    <a href="#">Blog</a>
+                                    <a href="<?= Url::to('/e-shop/web/admin/land/') ?>"> Land <a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <div class="search_box pull-right">
                             <form method="get" action="<?= Url::to(['category/search']) ?>">
                                 <input type="text" placeholder="Search" name="q">
