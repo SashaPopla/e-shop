@@ -2,7 +2,7 @@
 
 /** @var yii\web\View $this */
 /** @var object $category */
-
+/** @var integer $pages */
 use yii\helpers\Html;
 ?>
 <section id="advertisement">
@@ -53,32 +53,32 @@ use yii\helpers\Html;
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
                     <h2 class="title text-center"><?=$category->name?></h2>
-                        <?php if(!empty($products)): ?>
-                            <?php $i = 0; foreach ($products as $product): ?>
+                        <?php if(!empty($query)): ?>
+                            <?php $i = 0; foreach ($query as $product): ?>
                     <div class="col-sm-4">
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <?= Html::img("@web/images/products/{$product->img}", ['alt'=> $product->content]) ?>
-                                    <h2>$ <?=$product->price?></h2>
-                                    <p><a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $product->id]) ?>"> <?=$product->name?> </a></p>
-                                    <a href="#" data-id="<?= $product->id ?>" class="btn btn-fefault add-to-cart cart">
+                                    <?= Html::img("@web/images/products/{$product['img']}", ['alt'=> $product['description']]) ?>
+                                    <h2>$ <?=$product['price']?></h2>
+                                    <p><a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $product['id']]) ?>"> <?=$product['title']?> </a></p>
+                                    <a href="#" data-id="<?= $product['id'] ?>" class="btn btn-fefault add-to-cart cart">
                                         <i class="fa fa-shopping-cart"></i>
                                         Add to cart
                                     </a>
                                 </div>
-                                <?php if($product->new): ?>
+                                <?php if($product['new']): ?>
                                     <?= Html::img("@web/images/home/new.png", ['alt'=> 'New', 'class' => 'new'])?>
                                 <?php endif; ?>
 
-                                <?php if($product->sale): ?>
+                                <?php if($product['sale']): ?>
                                     <?= Html::img("@web/images/home/sale.png", ['alt'=> 'Sale', 'class' => 'new'])?>
                                 <?php endif; ?>
                             </div>
                             <div class="choose">
                                 <ul class="nav nav-pills nav-justified">
                                     <li>
-                                        <a href="<?= \yii\helpers\Url::to(['wishlist/add', 'id'=>$product->id]) ?>">
+                                        <a href="<?= \yii\helpers\Url::to(['wishlist/add', 'id'=>$product['id']]) ?>">
                                             <i class="fa fa-plus-square add-wishlist"></i>
                                             Add to wishlist
                                         </a>

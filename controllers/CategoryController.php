@@ -4,15 +4,25 @@ namespace app\controllers;
 
 use app\models\Category;
 use app\models\Product;
+use app\models\ProductLang;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\data\Pagination;
+//use yii\db\Query;
 use yii\web\HttpException;
-use yii\helpers\Html;
 
 class CategoryController extends AppController
 {
     public function actionIndex(){
-        $hits = Product::find()->where(['hit' => 1])->limit(6)->all();
+        //$hits = Product::find()->with()->where(['hit' => 1])->limit(6)->all();
+
+        $hits = (new yii\db\Query())
+            ->select(['product.id', 'product.price', 'product.img', 'product.hit', 'product.new', 'product.sale', 'product_lang.title', 'product_lang.description'])
+            ->from('product')
+            ->join('INNER JOIN', 'product_lang', 'product_lang.id = product.id')
+            ->where(['product_lang.lang' => Yii::$app->language, 'product.hit' => 1])
+            ->limit(6)
+            ->all();
 
         $this->setMeta('E-SHOPPER |');
 
@@ -21,7 +31,7 @@ class CategoryController extends AppController
 
     public function  actionView($id)
     {
-        //$id = Yii::$app->request->get('id');
+        $id = Yii::$app->request->get('id');
 
         $category = Category::findOne($id);
 
@@ -30,19 +40,30 @@ class CategoryController extends AppController
             throw new HttpException(404, 'Такой категории нету');
         }
 
-        $query = Product::find()->where(['category_id'=>$id]);
+        //$query = Product::find()->where(['category_id'=>$id]);
+
+        $query = (new yii\db\Query())
+            ->select(['product.id', 'product.price', 'product.img', 'product.hit',
+                'product.new', 'product.sale', 'product_lang.title', 'product_lang.description'])
+            ->from('product')
+            ->join('INNER JOIN', 'product_lang', 'product_lang.id = product.id')
+            ->join('INNER JOIN', 'category', 'category.id = product.category_id')
+            ->where(['product_lang.lang' => Yii::$app->language, 'product.category_id' => $id])
+            ->all();
+
         $pages = new Pagination([
-            'totalCount' => $query->count(),
+            'totalCount' => count($query),
             'pageSize' => 3,
             'forcePageParam' => false,
             'pageSizeParam' => false
         ]);
 
-        $products = $query->offset($pages->offset)->limit($pages->limit)->all();
+        //$products = $provider->offset($pages->offset)->limit($pages->limit)->all();
 
         $this->setMeta('E-SHOPPER | '.$category->name, $category->keywords, $category->description);
 
-        return $this->render('view', compact('products', 'pages', 'category'));
+        //return $this->render('view', compact('products', 'pages', 'category'));
+        return $this->render('view', compact('query', 'pages', 'category'));
     }
 
     public function actionSearch()

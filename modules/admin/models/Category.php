@@ -48,11 +48,11 @@ class Category extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => '№ категории',
-            'parent_id' => 'Родительская категория',
-            'name' => 'Название категории',
-            'keywords' => 'Ключевые слова',
-            'description' => 'Мета-писание',
+            'id', //=> '№ категории',
+            'parent_id', //=> 'Родительская категория',
+            'name', //=> 'Название категории',
+            'keywords', //=> 'Ключевые слова',
+            'description', //=> 'Мета-писание',
         ];
     }
 

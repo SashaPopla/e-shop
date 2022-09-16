@@ -3,14 +3,10 @@
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
-
-
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
-    'language' => 'ru',
-    'sourceLanguage' => 'en',
+    'bootstrap' => ['log',],
     'defaultRoute' => 'category/index',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -26,7 +22,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'rDFbhGJ-LEZcersuCLFg4KbGW4cvOdFz',
-            //'baseUrl' => $baseUrl,
+            //'baseUrl' => '',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -40,18 +36,19 @@ $config = [
         ],
             'mailer' => [
                 'class' => 'yii\swiftmailer\Mailer',
-                /*'transport' => [
+                'viewPath' => '@app/mail',
+                'useFileTransport' => true,
+                'transport' => [
                     'class' => 'Swift_SmtpTransport',
-                    'host' => 'imap.gmail.com',
+                    'host' => 'smtp.gmail.com',
                     'username' => 'saspoplavskiy563@gmail.com',
                     'password' => 'sashapop3105',
-                    'port' => '993',
-                    'encryption' => 'smtf'
-                ],*/
+                    'port' => '465',
+                    'encryption' => 'tls'
+                ],
                 // send all mails to a file by default. You have to set
                 // 'useFileTransport' to false and configure transport
                 // for the mailer to send real emails.
-                'useFileTransport' => true,
             ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -67,10 +64,7 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'enableStrictParsing' => false,
-            'class' => 'codemix\localeurls\UrlManager',
-            'languages' => ['ru', 'en'],
-            'enableDefaultLanguageUrlCode' => false,
+            'class' => 'app\components\UrlManager',
             'rules' => [
                 // конкретные правила
                 'category/<id:\d+>/page/<page:\d+>' => 'category/view',
@@ -81,16 +75,26 @@ $config = [
                 'search' => 'category/search',
                 'wishlist' => 'wishlist/add-wishlist',
                 'order' => 'cart/view',
-                '//*' => '/'
             ],
         ],
+        'language' => 'en',
         'i18n' => [
             'translations' => [
-                'common*' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@app/messages',
+                'app*' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'sourceLanguage' => 'en',
+                    'sourceMessageTable' => 'source_message',
+                    'messageTable' => 'message',
+                    'cachingDuration' => 86400,
+                    'enableCaching' => false,
                 ],
             ],
+        ],
+        'formatter' => [
+            'dateFormat' => 'php:d.m.Y',
+            'datetimeFormat' => 'php:d.m.Y H:i:s',
+            'timeFormat' => 'php:H:i:s',
+            'locale' => 'ru-RU',
         ],
     ],
     'params' => $params,

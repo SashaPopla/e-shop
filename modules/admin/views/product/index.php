@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'hit',
                 'value' => function($data){
-                    return !$data->hit ? '<span class="text-danger">Нет</span>' : '<span class="text-success">Да</span>';
+                    return !$data->hit ? '<span class="text-danger">No</span>' : '<span class="text-success">Yes</span>';
                 },
                 'format' => 'html',
             ],
@@ -55,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'new',
                 'value' => function($data){
-                    return !$data->new ? '<span class="text-danger">Нет</span>' : '<span class="text-success">Да</span>';
+                    return !$data->new ? '<span class="text-danger">No</span>' : '<span class="text-success">Yes</span>';
                 },
                 'format' => 'html',
             ],
@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'sale',
                 'value' => function($data){
-                    return !$data->sale ? '<span class="text-danger">Нет</span>' : '<span class="text-success">Да</span>';
+                    return !$data->sale ? '<span class="text-danger">No</span>' : '<span class="text-success">Yes</span>';
                 },
                 'format' => 'html',
             ],

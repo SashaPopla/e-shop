@@ -17,9 +17,9 @@ use yii\widgets\ActiveForm;
     <?php //echo $form->field($model, 'parent_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Category::find()->all(), 'id', 'name')); ?>
 
     <div class="form-group field-category-parent_id has-success">
-        <label class="control-label" for="category-parent_id">Родительская категория</label>
+        <label class="control-label" for="category-parent_id">Parent category</label>
         <select id="category-parent_id" class="form-control" name="Categoty[parent_id]">
-            <option value="0">Самостаятельная категория</option>
+            <option value="0">Independent category</option>
             <?= \app\components\MenuWidget::widget(['tpl' => 'select', 'model' => $model]) ?>
         </select>
     </div>

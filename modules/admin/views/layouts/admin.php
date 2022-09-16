@@ -6,6 +6,7 @@
     use app\assets\LtAppAsset;
     use yii\bootstrap4\Html;
     use yii\helpers\Url;
+    use app\widgets\LanguageSwitch;
 
     AppAsset::register($this);
     LtAppAsset::register($this);
@@ -41,7 +42,14 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-2">
+                        <div class="contactinfo">
+                            <ul class="nav nav-pills">
+                                <?= LanguageSwitch::widget(); ?>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
                         <div class="social-icons pull-right">
                             <ul class="nav navbar-nav">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -62,34 +70,20 @@
                                 <?= Html::img("@web/images/home/logo.png", ['alt'=> 'E-SHOPPER |']) ?>
                             </a>
                         </div>
-                        <div class="btn-group pull-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                    USA
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Canada</a></li>
-                                    <li><a href="#">UK</a></li>
-                                </ul>
-                            </div>
-
-                        </div>
                     </div>
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
 <?php if(!Yii::$app->user->isGuest): ?>
-<li><a href="<?= Url::to(['/site/logout']) ?>"><i class="fa fa-user"></i> <?= Yii::$app->user->identity->username ?> (Выход) </a></li>
+<li><a href="<?= Url::to(['/site/logout']) ?>"><i class="fa fa-user"></i> <?= Yii::$app->user->identity->username ?> (<?=Yii::t('app_main', 'Exit')?>) </a></li>
 <?php endif;?>
                                 <li>
-                                    <a href="<?= Url::to(['wishlist/add-wishlist']) ?>"><i class="fa fa-star"></i> Wishlist</a>
+                                    <a href="<?= Url::to(['wishlist/add-wishlist']) ?>"><i class="fa fa-star"></i> <?=Yii::t('app_main', 'Wishlist')?></a>
                                 </li>
-                                <li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                 <li>
-                                    <a href="#" id="getCart"><i class="fa fa-shopping-cart"></i> Cart</a>
+                                    <a href="#" id="getCart"><i class="fa fa-shopping-cart"></i> <?=Yii::t('app_main', 'Cart')?></a>
                                 </li>
-                                <li><a href="<?= Url::to('site/login') ?>"><i class="fa fa-lock"></i> Login</a></li>
+                                <li><a href="<?= Url::to('site/login') ?>"><i class="fa fa-lock"></i> <?=Yii::t('app_main', 'Login')?></a></li>
                             </ul>
                         </div>
                     </div>
@@ -112,19 +106,19 @@
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <li>
-                                    <a href="<?= Url::to('/e-shop/web/admin/') ?>" class="active">Home</a>
+                                    <a href="<?= Url::to('/e-shop/web/admin/') ?>" class="active"><?=Yii::t('app_main', 'Home')?></a>
                                 </li>
                                 <li>
-                                    <a href="<?= Url::to('/e-shop/web/admin/category/') ?>">Category</a>
+                                    <a href="<?= Url::to('/e-shop/web/admin/category/') ?>"><?=Yii::t('app_main', 'Category')?></a>
                                 </li>
                                 <li>
-                                    <a href="<?= Url::to('/e-shop/web/admin/product/') ?>">Product</a>
+                                    <a href="<?= Url::to('/e-shop/web/admin/product/') ?>"><?=Yii::t('app_main', 'Product')?></a>
                                 </li>
                                 <li>
-                                    <a href="<?= Url::to('/e-shop/web/admin/order/') ?>">Order</a>
+                                    <a href="<?= Url::to('/e-shop/web/admin/order/') ?>"><?=Yii::t('app_main', 'Order')?></a>
                                 </li>
                                 <li>
-                                    <a href="<?= Url::to('/e-shop/web/admin/land/') ?>"> Land <a>
+                                    <a href="<?= Url::to('/e-shop/web/admin/lang/') ?>"> <?=Yii::t('app_main', 'Language')?> <a>
                                 </li>
                             </ul>
                         </div>

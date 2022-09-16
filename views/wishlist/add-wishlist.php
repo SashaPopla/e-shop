@@ -35,7 +35,7 @@ $js = <<< JS
 $('.del').on('click', function(){
     let id = $(this).data('id');
     $.ajax({
-        url: '/e-shop/web/wishlist/del',
+        url: '/e-shop/web/en/wishlist/del',
         data: {id: id},
         type: 'GET',
         success: function (res){
@@ -45,6 +45,7 @@ $('.del').on('click', function(){
             location.reload(true);
         },
         error: function (){
+            //alert("Ошибка");
             location.reload(true);
         }
     });

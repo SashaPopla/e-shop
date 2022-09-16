@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' =>  'parent_id',
                 'value' => function($data){
                     if(!$data->category)
-                        return "Родительская категория";
+                        return "Parent category";
                     else
                         return $data->category->name;
                 },

@@ -50,7 +50,7 @@ use yii\helpers\Url;
                 <div class="product-details"><!--product-details-->
                     <div class="col-sm-5">
                         <div class="view-product">
-                            <?= Html::img("@web/images/products/{$product->img}", ['alt'=> $product->name]) ?>
+                            <?= Html::img("@web/images/products/{$product[0]['img']}", ['alt'=> $product[0]['description']]); ?>
                             <h3>ZOOM</h3>
                         </div>
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -86,29 +86,29 @@ use yii\helpers\Url;
                     </div>
                     <div class="col-sm-7">
                         <div class="product-information"><!--/product-information-->
-                            <?php if($product->new): ?>
+                            <?php if($product[0]['new']): ?>
                                 <?= Html::img("@web/images/home/new.png", ['alt'=> 'New', 'class' => 'newarrival'])?>
                             <?php endif; ?>
 
-                            <?php if($product->sale): ?>
+                            <?php if($product[0]['sale']): ?>
                                 <?= Html::img("@web/images/home/sale.png", ['alt'=> 'Sale', 'class' => 'newarrival'])?>
                             <?php endif; ?>
 
-                            <h2><?= $product->name ?></h2>
+                            <h2><?= $product[0]['title'] ?></h2>
                             <p>Web ID: 1089772</p>
                             <?= Html::img("@web/images/product-details/rating.png", ['alt'=> '']) ?>
                             <span>
-                                <span>$ <?= $product->price ?></span>
+                                <span>$ <?= $product[0]['price'] ?></span>
                                 <label>Quantity:</label>
                                 <input type="text" value="1" id="qty"/>
-                                <a href="#" data-id="<?= $product->id ?>" class="btn btn-fefault add-to-cart cart">
+                                <a href="#" data-id="<?= $product[0]['id'] ?>" class="btn btn-fefault add-to-cart cart">
                                     <i class="fa fa-shopping-cart"></i>
                                     Add to cart
                                 </a>
                             </span>
                             <p><b>Availability:</b> In Stock</p>
                             <p><b>Condition:</b> New</p>
-                            <b>Brand:</b><a href="<?= \yii\helpers\Url::to(['category/view', ['id' => $product->category->id]]) ?>"> <?= $product->category->name ?></a>
+                            <b>Brand:</b><a href="<?= \yii\helpers\Url::to(['category/view', ['id' => $product[0]['categoryId']]]) ?>"> <?= $product[0]['categoryName'] ?></a>
                             <a href=""><?= Html::img("@web/images/product-details/share.png", ['alt'=> '', 'class'=>'share img-responsive']) ?> </a>
                         </div><!--/product-information-->
                     </div>
@@ -316,10 +316,13 @@ use yii\helpers\Url;
                 <div class="product-image-wrapper">
                     <div class="single-products">
                          <div class="productinfo text-center">
-                         <?= Html::img("@web/images/products/{$hit->img}", ['alt'=> $hit->name]) ?>
-                             <h2>$<?= $hit->price ?></h2>
-                             <p><a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit->id]) ?>"> <?= $hit->name?> </a></p>
-                             <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                         <?= Html::img("@web/images/products/{$hit['img']}", ['alt'=> $hit['description']]) ?>
+                             <h2>$<?= $hit['price'] ?></h2>
+                             <p><a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit['id']]) ?>"> <?= $hit['title']?> </a></p>
+                             <a href="<?=\yii\helpers\Url::to(['cart/add', 'id'=>$hit['id']])?>" data-id="<?=$hit['id']?>" class="btn btn-default add-to-cart">
+                                 <i class="fa fa-shopping-cart"></i>
+                                 Add to cart
+                             </a>
                          </div>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ function showCart(cart){
 $('#getCart').on('click', function (e){
     e.preventDefault();
     $.ajax({
-        url: '/e-shop/web/cart/show',
+        url: '/e-shop/web/en/cart/show',
         type: 'GET',
         success: function (res){
             if(!res)
@@ -27,7 +27,7 @@ $('.add-to-cart').on('click', function (e){
     let id = $(this).data('id'),
         qty = $('#qty').val();
     $.ajax({
-        url:  '/e-shop/web/cart/add',
+        url:  '/e-shop/web/en/cart/add',
         data: {
             id: id,
             qty: qty
@@ -47,7 +47,7 @@ $('.add-to-cart').on('click', function (e){
 
 $('#clear').on('click', function(){ // clear cart
     $.ajax({
-        url: '/e-shop/web/cart/clear',
+        url: '/e-shop/web/en/cart/clear',
         type: 'GET',
         success: function (res){
             if(!res)
@@ -64,7 +64,7 @@ $('#clear').on('click', function(){ // clear cart
 $('#cart .modal-body').on('click', '.del-item', function (){
     let id = $(this).data('id');
     $.ajax({
-        url: '/e-shop/web/cart/del-item',
+        url: '/e-shop/web/en/cart/del-item',
         data: {id: id},
         type: 'GET',
         success: function (res){

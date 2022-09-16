@@ -32,7 +32,7 @@ class AppAsset extends AssetBundle
         'js/jquery.prettyPhoto.js',
         'js/jquery.accordion.js',
         'js/jquery.cookie.js',
-        'js/add.js',
+        'js/cart.js'
     ];
     public $depends = [
         //'yii\web\YiiAsset',
