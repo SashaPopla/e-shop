@@ -1,0 +1,19 @@
+------------------------------------------------------------------------------------------------------------
+Independent category - Самостаятельная категория
+Parent category - Родительская категория
+Completed - Завершен
+Active - Активен
+------------------------------------------------------------------------------------------------------------
+select product.id, product.price, product.img, product.hit, product.new, product.sale,
+product_lang.lang, product_lang.title, product_lang.description
+From product
+INNER JOIN product_lang ON product_lang.id = product.id
+WHERE product.hit = 1 AND product_lang.lang = 'en'
+LIMIT 6
+------------------------------------------------------------------------------------------------------------
+select product.id, product.price, product.img, product.hit, product.new, product.sale,
+product_lang.lang, product_lang.title, product_lang.description, category.name
+From product
+INNER JOIN product_lang ON product_lang.id = product.id
+INNER JOIN category ON category.id = product.category_id
+WHERE category.id = product.category_id AND product_lang.lang = 'en'
