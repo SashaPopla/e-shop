@@ -42,21 +42,19 @@ class CartController extends AppController
         $qty = (int)Yii::$app->request->get('qty');
 
         $qty = !$qty ? 1 : $qty;
-        //debug($id);
+
         $product = Product::findOne($id);
 
         if(empty($product))
             return false;
-        //debug($product);
+
         $session = Yii::$app->session;
         $session->open();
 
         $cart = new Cart();
 
         $cart->addToCart($product, $qty);
-        //debug($session['cart']);
-        //debug($session['cart.qty']);
-        //debug($session['cart.sum']);
+
         $this->layout = false;
         return $this->render('cart-model', compact('session'));
     }
@@ -122,8 +120,7 @@ class CartController extends AppController
                     ->setSubject('Заказ от сайта E-SHOPPER')
                     ->send();
                 //
-                //debug($order);
-                //debug($order->email);
+
                 $session->remove('cart');
                 $session->remove('cart.qty');
                 $session->remove('cart.sum');

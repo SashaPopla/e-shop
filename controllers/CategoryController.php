@@ -21,12 +21,28 @@ class CategoryController extends AppController
             ->from('product')
             ->join('INNER JOIN', 'product_lang', 'product_lang.id = product.id')
             ->where(['product_lang.lang' => Yii::$app->language, 'product.hit' => 1])
+            ->orderBy('RAND()')->limit(3)
+            ->all();
+
+        $news = (new yii\db\Query())
+            ->select(['product.id', 'product.price', 'product.img', 'product.hit', 'product.new', 'product.sale', 'product_lang.title', 'product_lang.description'])
+            ->from('product')
+            ->join('INNER JOIN', 'product_lang', 'product_lang.id = product.id')
+            ->where(['product_lang.lang' => Yii::$app->language, 'product.new' => 1])
             ->limit(6)
+            ->all();
+
+        $kids = (new yii\db\Query())
+            ->select(['product.id', 'product.price', 'product.img', 'product.hit', 'product.new', 'product.sale', 'product_lang.title', 'product_lang.description'])
+            ->from('product')
+            ->join('INNER JOIN', 'product_lang', 'product_lang.id = product.id')
+            ->where(['product_lang.lang' => Yii::$app->language, 'product.category_id' => 24])
+            ->limit(4)
             ->all();
 
         $this->setMeta('E-SHOPPER |');
 
-        return $this->render('index', compact('hits'));
+        return $this->render('index', compact('hits', 'news', 'kids'));
     }
 
     public function  actionView($id)
@@ -53,7 +69,7 @@ class CategoryController extends AppController
 
         $pages = new Pagination([
             'totalCount' => $query->count(),
-            'pageSize' => 6,
+            'pageSize' => 12,
             'forcePageParam' => false,
             'pageSizeParam' => false
         ]);
@@ -70,7 +86,7 @@ class CategoryController extends AppController
     {
         $search = trim(Yii::$app->request->get('q'));
 
-        $this->setMeta('E-SHOPPER | '.$search);
+        $this->setMeta('E-SHOPPER | Search: '.$search);
 
         if(!$search){
             return $this->render('search');

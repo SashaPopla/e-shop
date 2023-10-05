@@ -45,7 +45,7 @@ class WishlistController extends AppController
     public function actionDel()
     {
         $id = Yii::$app->request->get('id');
-        //debug($id);
+
         $session = Yii::$app->session;
         $session->open();
 

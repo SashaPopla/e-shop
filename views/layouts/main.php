@@ -112,13 +112,7 @@ LtAppAsset::register($this);
                                 <a href="<?= Url::home()?>" class="active"><?=Yii::t('app_main', 'Home')?></a>
                             </li>
                             <li class="dropdown">
-                                <a href="#"><?=Yii::t('app_main', 'Shop')?></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#"><?=Yii::t('app_main', 'Blog')?></a>
-                            </li>
-                            <li>
-                                <a href="contact-us.html"><?=Yii::t('app_main', 'Contact')?> </a>
+                                <a href="<?=Url::to(["shop/view"])?>"><?=Yii::t('app_main', 'Shop')?></a>
                             </li>
                         </ul>
                     </div>
