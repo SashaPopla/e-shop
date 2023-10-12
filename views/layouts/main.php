@@ -7,7 +7,7 @@ use app\assets\AppAsset;
 use app\assets\LtAppAsset;
 use yii\bootstrap4\Html;
 use app\widgets\LanguageSwitch;
-use yii\bootstrap4\Nav;
+use yii\bootstrap\Nav;
 use yii\helpers\Url;
 
 AppAsset::register($this);

@@ -60,7 +60,8 @@ class Order extends \yii\db\ActiveRecord
             'name', // => 'Имя заказчика',
             'email', // => 'E-mail',
             'phone', // => 'Телефон',
-            'address', // => 'Адрес',
+            'city', // => 'Город',
+            'mail', // => 'Відділ почти',
         ];
     }
 

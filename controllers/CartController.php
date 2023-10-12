@@ -2,11 +2,15 @@
 
 namespace app\controllers;
 
+use app\models\City;
+use app\models\Mail;
 use app\models\Product;
 use app\models\Cart;
 use app\models\Order;
 use app\models\OrderItems;
 use Yii;
+use yii\helpers\ArrayHelper;
+use yii\web\Response;
 
 /*
  *Массив корзины
@@ -94,6 +98,13 @@ class CartController extends AppController
         return $this->render('cart-model', compact('session'));
     }
 
+    public function actionMail($cityId){
+        //$cityId = Yii::$app->request->get('id');
+        $mails = Mail::find()->where(['id_city' => $cityId])->select('name')->asArray()->all();
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        return ['mails' => $mails];
+    }
+
     public function actionView()
     {
         $this->setMeta('E-SHOPPER | Order');
@@ -102,6 +113,7 @@ class CartController extends AppController
         $session->open();
 
         $order = new Order();
+        $city = ArrayHelper::map(City::find()->all(), 'id','name');
 
         if($order->load(Yii::$app->request->post()))
         {
@@ -128,7 +140,7 @@ class CartController extends AppController
             else
                 Yii::$app->session->setFlash('error', 'Ошибка при оформлении заказа');
         }
-        return $this->render('view', compact('session', 'order'));
+        return $this->render('view', compact('session', 'order', 'city'));
     }
 
     protected function saveOrderItems($items, $order_id)

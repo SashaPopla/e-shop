@@ -5,6 +5,8 @@ namespace app\models;
 use Yii;
 use yii\db\ActiveRecord;
 use app\models\OrderItems;
+use app\models\City;
+use app\models\Mail;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
 
@@ -20,7 +22,8 @@ use yii\db\Expression;
  * @property string $name
  * @property string $email
  * @property string $phone
- * @property string $address
+ * @property string $city
+ * @property string $mail
  */
 class Order extends ActiveRecord
 {
@@ -57,12 +60,13 @@ class Order extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'phone', 'address'], 'required'],
+            [['name', 'email', 'phone', 'city', 'mail'], 'required'],
             [['qty'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['sum'], 'number'],
             [['status'], 'boolean'],
-            [['name', 'email', 'phone', 'address'], 'string', 'max' => 255],
+            ['phone', 'match', 'pattern' => '/^\d{10}$/i', 'message' => 'Неверный формат номера телефона. Пример: 0999999999'],
+            [['name', 'email', 'phone', 'city', 'mail'], 'string', 'max' => 255],
         ];
     }
 
@@ -75,7 +79,8 @@ class Order extends ActiveRecord
             'name' => 'Имя',
             'email' => 'E-main',
             'phone' => 'Телефон',
-            'address' => 'Адресса',
+            'city' => 'Город',
+            'mail' => 'Адресса пошти',
         ];
     }
 }

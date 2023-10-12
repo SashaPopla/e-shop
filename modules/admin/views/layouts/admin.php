@@ -4,7 +4,7 @@
 
     use app\assets\AppAsset;
     use app\assets\LtAppAsset;
-    use yii\bootstrap4\Html;
+    //use yii\bootstrap5\Html;
     use yii\helpers\Url;
     use app\widgets\LanguageSwitch;
 
@@ -18,7 +18,7 @@
         <meta charset="<?= Yii::$app->charset ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <?php $this->registerCsrfMetaTags() ?>
-        <title>Admin | <?= Html::encode($this->title) ?></title>
+        <title>Admin | <?= \yii\bootstrap4\Html::encode($this->title) ?></title>
         <?php $this->head() ?>
 
         <link rel="shortcut icon" href="images/ico/favicon.ico">
@@ -67,7 +67,7 @@
                     <div class="col-sm-4">
                         <div class="logo pull-left">
                             <a href="<?= Url::home()?>">
-                                <?= Html::img("@web/images/home/logo.png", ['alt'=> 'E-SHOPPER |']) ?>
+                                <?=  \yii\bootstrap4\Html::img("@web/images/home/logo.png", ['alt'=> 'E-SHOPPER |']) ?>
                             </a>
                         </div>
                     </div>
@@ -154,7 +154,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <?= Html::img("@web/images/home/iframe1.png", ['alt'=> '']) ?>
+                                        <?= \yii\bootstrap4\Html::img("@web/images/home/iframe1.png", ['alt'=> '']) ?>
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -169,7 +169,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <?= Html::img("@web/images/home/iframe2.png", ['alt'=> '']) ?>
+                                        <?= \yii\bootstrap4\Html::img("@web/images/home/iframe2.png", ['alt'=> '']) ?>
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -184,7 +184,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <?= Html::img("@web/images/home/iframe3.png", ['alt'=> '']) ?>
+                                        <?= \yii\bootstrap4\Html::img("@web/images/home/iframe3.png", ['alt'=> '']) ?>
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -199,7 +199,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <?= Html::img("@web/images/home/iframe4.png", ['alt'=> '']) ?>
+                                        <?= \yii\bootstrap4\Html::img("@web/images/home/iframe4.png", ['alt'=> '']) ?>
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -212,7 +212,7 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="address">
-                            <?= Html::img("@web/images/home/map.png", ['alt'=> '']) ?>
+                            <?= \yii\bootstrap4\Html::img("@web/images/home/map.png", ['alt'=> '']) ?>
                             <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
                         </div>
                     </div>

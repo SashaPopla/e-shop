@@ -45,7 +45,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'email:email',
             'phone',
-            'address',
+            'city',
+            'mail',
         ],
     ]) ?>
 

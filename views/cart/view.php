@@ -1,10 +1,14 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\widgets\ActiveForm;
+use yii\bootstrap4\ActiveForm;
+use app\models\User;
 
 /** @var object $order */
-
+/** @var object $city */
+/** @var object $mail */
+if (!Yii::$app->user->isGuest)
+    $email = User::find()->where(['username' => Yii::$app->user->identity->username])->one();
 ?>
 
 <div class="container">
@@ -68,14 +72,27 @@ use yii\widgets\ActiveForm;
         <hr>
 
     <?php $form = ActiveForm::begin()?>
-        <?= $form->field($order, 'name') ?>
-        <?= $form->field($order, 'email') ?>
+        <?php if(!Yii::$app->user->isGuest): ?>
+            <?= $form->field($order, 'name')->textInput(['value' => Yii::$app->user->identity->username]) ?>
+            <?= $form->field($order, 'email')->textInput(['value' => $email->email]) ?>
+        <?php else: ?>
+            <?= $form->field($order, 'name') ?>
+            <?= $form->field($order, 'email') ?>
+        <?php endif; ?>
+
         <?= $form->field($order, 'phone') ?>
-        <?= $form->field($order, 'address') ?>
+        <?= $form->field($order, 'city')->dropDownList(
+                $city,
+                ['prompt' => 'Виберете город', 'id' => 'city-dropdown']
+        )?>
+
+        <?= $form->field($order, 'mail')->textInput(['id'=>'mail-name', 'list' => 'mail'])?>
+        <datalist id="mail"></datalist>
         <?= Html::submitButton('Заказать', ['class' => 'btn btn-success']) ?>
     <?php $form = ActiveForm::end()?>
 
     <?php else: ?>
         <h2>Корзина пустая</h2>
-    <?php endif; ?>
+<?php endif; ?>
+    <br>
 </div>
